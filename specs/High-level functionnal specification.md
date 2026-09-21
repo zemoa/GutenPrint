@@ -23,17 +23,17 @@ The file is kept temporarily while it is previewed and printed, then deleted. Th
     - [ ] JPG
     - [ ] PNG
 
-The list of formats actually available in a release is defined by that release. A supported format must be previewable and printable.
+The list of formats actually available in a release is defined by that release. A supported format must be printable and normally previewable. If rendering the selected file fails, the application notifies the user and displays a clearly identified generic visual indicating that the actual preview is unavailable. The generic visual must not be presented as a valid preview of the file.
 
 ## Supported Printers
 The application detects printers on the local network, including those that are not yet supported.
 
 Version 1 only allows printing with the following printers:
 - Epson:
-    - [ ] XP 6000 series
+    - [ ] XP 6000 series, including models such as XP-6105
 
 A detected but unsupported printer must be clearly identified and cannot be used for printing.
-The user can also add a printer manually using its network address. The application then checks whether it is supported.
+The user can also add a printer manually using its IPv4 address. The application then checks whether it is supported.
 
 ## Main Features
 ### Automatic Printer Discovery
@@ -48,7 +48,7 @@ The user can save a printer. A saved printer remains visible even when it is not
 
 ### Preview
 The user must be able to preview their print job before starting it.
-The preview must correspond to the selected file. If it fails, the application must notify the user and must not present the preview as valid.
+The preview must correspond to the selected file. If rendering it fails, the application must notify the user and display a clearly identified generic visual instead. The generic visual must not be presented as a valid preview of the selected file.
 
 Detailed print settings are not defined in this high-level functional specification. They will be specified in the concrete implementation, without exceeding the scope of printing a file.
 
