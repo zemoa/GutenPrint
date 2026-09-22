@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">GutenPrint</string>
+    <string name="select_file_title">Choisir un fichier à imprimer</string>
+    <string name="select_file">Choisir un fichier</string>
+    <string name="replace_file">Remplacer le fichier</string>
+    <string name="print">Imprimer</string>
+    <string name="no_file_selected">Aucun fichier sélectionné</string>
+    <string name="file_preview">Aperçu du fichier</string>
+    <string name="preview_unavailable">Aperçu indisponible</string>
+    <string name="unsupported_format">Ce format de fichier n’est pas pris en charge</string>
+    <string name="file_cannot_read">Ce fichier ne peut pas être lu</string>
+    <string name="file_copy_failed">Le fichier n’a pas pu être copié dans le stockage temporaire</string>
+    <string name="one_file_required">Un seul fichier est requis</string>
+</resources>

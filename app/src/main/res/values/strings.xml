@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">GutenPrint</string>
+    <string name="select_file_title">Choose a file to print</string>
+    <string name="select_file">Choose file</string>
+    <string name="replace_file">Replace file</string>
+    <string name="print">Print</string>
+    <string name="no_file_selected">No file selected</string>
+    <string name="file_preview">File preview</string>
+    <string name="preview_unavailable">Preview unavailable</string>
+    <string name="unsupported_format">This file format is not supported</string>
+    <string name="file_cannot_read">This file cannot be read</string>
+    <string name="file_copy_failed">The file could not be copied to temporary storage</string>
+    <string name="one_file_required">One file is required</string>
 </resources>

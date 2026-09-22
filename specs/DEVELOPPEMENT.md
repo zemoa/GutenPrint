@@ -79,6 +79,21 @@ A comment is acceptable only when it documents information that code cannot clea
 
 A comment must describe the intent or constraint, remain accurate after code changes, and be removed when it is no longer relevant.
 
+## Logging
+
+Logs follow these levels:
+
+- **Debug**: execution details useful for understanding the application, including relevant data;
+- **Info**: information about the normal flow of the application;
+- **Warning**: expected and handled anomalies;
+- **Error**: unexpected errors.
+
+Domain code depends on the logging interface. The platform-specific logger implementation belongs in infrastructure.
+
+## Heavy Processing
+
+File operations, rendering, cleanup, and other heavy processing must run on `Dispatchers.IO` and must not block the main thread.
+
 ## Review
 
 A change is acceptable when:

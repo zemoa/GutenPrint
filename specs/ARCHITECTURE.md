@@ -8,6 +8,7 @@ This document must only be edited when an architectural principle is decided.
 
 ## Technologies
 - Kotlin
+- Jetpack Compose for the user interface
 
 ## Target
 Android
@@ -99,7 +100,7 @@ treeView-beta
 
 ```
 
-__views__: Contains everything related to views (reusable components and pages). Views know ONLY domains.
+__views__: Contains everything related to views (reusable Compose components and pages). Views know ONLY domains and communicate with them through state and actions.
 
 __domains__: Contains the stores. One package per functional domain. This is where business features are implemented. It contains the most comprehensive unit tests.
 
@@ -119,3 +120,5 @@ infra/drivers -> interfaces
 ```
 
 Domains may depend on technical interfaces, but never on a concrete implementation.
+
+Cross-cutting technical services used by domains, such as logging, must be exposed through interfaces in `domains/interfaces`. Their concrete implementations belong in `infra`.
