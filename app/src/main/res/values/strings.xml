@@ -11,4 +11,23 @@
     <string name="file_cannot_read">This file cannot be read</string>
     <string name="file_copy_failed">The file could not be copied to temporary storage</string>
     <string name="one_file_required">One file is required</string>
+    <string name="select_printer">Select printer</string>
+    <string name="select_printer_title">Select a printer</string>
+    <string name="no_local_network">No local network</string>
+    <string name="no_printer_detected">No printer detected</string>
+    <string name="discovery_failed">Discovery failed</string>
+    <string name="available">Available</string>
+    <string name="unavailable">Unavailable</string>
+    <string name="unknown_printer">Unknown printer</string>
+    <string name="unknown">Unknown</string>
+    <string name="unsupported_printer">Unsupported</string>
+    <string name="saved_printer">Saved</string>
+    <string name="save_printer">Save</string>
+    <string name="remove_saved_printer_title">Remove saved printer?</string>
+    <string name="remove">Remove</string>
+    <string name="cancel">Cancel</string>
+    <string name="add_printer">Add</string>
+    <string name="printer_ipv4">IPv4 address</string>
+    <string name="selected_printer">Selected printer: %1$s</string>
+    <string name="no_printer_selected">No printer selected</string>
 </resources>

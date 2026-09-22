@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "net.zemoa.gutenprint"
-        minSdk = 24
+        minSdk = 34
         targetSdk = 37
         versionCode = 1
         versionName = "1.0"

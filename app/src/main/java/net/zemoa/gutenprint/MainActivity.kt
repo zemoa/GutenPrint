@@ -7,10 +7,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.activity.compose.setContent
+import androidx.compose.runtime.getValue
 import kotlinx.coroutines.launch
 import net.zemoa.gutenprint.infra.logging.AndroidLogger
 import net.zemoa.gutenprint.views.printing.PrintingRoute
+import net.zemoa.gutenprint.views.printers.PrinterSelectionRoute
 import net.zemoa.gutenprint.views.theme.GutenPrintTheme
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +33,20 @@ class MainActivity : AppCompatActivity() {
         logger.info(TAG, "Activity created")
         setContent {
             GutenPrintTheme {
-                PrintingRoute(viewModel.store, ::openPicker)
+                val showPrinters by viewModel.showPrinters.collectAsStateWithLifecycle()
+                if (showPrinters) {
+                    PrinterSelectionRoute(
+                        store = viewModel.printers,
+                        onClose = viewModel::closePrinterSelection,
+                    )
+                } else {
+                    PrintingRoute(
+                        store = viewModel.store,
+                        onOpenPicker = ::openPicker,
+                        onSelectPrinter = viewModel::openPrinterSelection,
+                        selectedPrinter = viewModel.selectedPrinter.collectAsStateWithLifecycle().value,
+                    )
+                }
             }
         }
         if (savedInstanceState == null) handleIntent(intent)

@@ -40,11 +40,14 @@ import net.zemoa.gutenprint.domains.printing.FileSelectionError
 import net.zemoa.gutenprint.domains.printing.PreviewResult
 import net.zemoa.gutenprint.domains.printing.PrintingState
 import net.zemoa.gutenprint.domains.printing.PrintingStore
+import net.zemoa.gutenprint.domains.printers.Printer
 
 @Composable
 fun PrintingRoute(
     store: PrintingStore,
     onOpenPicker: () -> Unit,
+    onSelectPrinter: () -> Unit = {},
+    selectedPrinter: Printer? = null,
 ) {
     val state by store.state.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
@@ -60,6 +63,8 @@ fun PrintingRoute(
         state = state,
         snackbarHostState = snackbarHostState,
         onOpenPicker = onOpenPicker,
+        onSelectPrinter = onSelectPrinter,
+        selectedPrinter = selectedPrinter,
     )
 }
 
@@ -68,6 +73,8 @@ fun PrintingScreen(
     state: PrintingState,
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onOpenPicker: () -> Unit = {},
+    onSelectPrinter: () -> Unit = {},
+    selectedPrinter: Printer? = null,
 ) {
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
@@ -111,6 +118,18 @@ fun PrintingScreen(
             ) {
                 Text(stringResource(R.string.print))
             }
+            Button(
+                onClick = onSelectPrinter,
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Text(stringResource(R.string.select_printer))
+            }
+            Text(
+                text = selectedPrinter?.let {
+                    stringResource(R.string.selected_printer, it.name ?: it.ipv4Address)
+                } ?: stringResource(R.string.no_printer_selected),
+                modifier = Modifier.fillMaxWidth(),
+            )
         }
     }
 }
